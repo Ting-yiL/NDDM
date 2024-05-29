@@ -11,5 +11,6 @@ for i in range(10):
 
 
 cd2 = CircleDetector()
-cd2.readImg(r"./resources/images/N45/NG_group.jpg")
-cd2.detectCircle()
+# cd2.readImg(r"./resources/images/N45/NG/NG_group1.jpg")
+cd2.readImg(r"./resources/images/N45/NG/NG1.jpg")
+cd2.inspectSingleCircle(cd2.img)
