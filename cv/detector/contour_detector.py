@@ -1,13 +1,15 @@
 import cv2
 import numpy as np
 import logging
+from .image_manager import ImageManager
+from .contants import *
 
 class ContourDetector:
     def __init__(self) -> None:
-        pass
+        self.img_manager = ImageManager()
 
-    def detectContour(self, image):
-        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        gray_blurred = cv2.blur(gray, (10, 10)) 
-        cv2.imshow("gray_blurred", gray_blurred) 
+    def detectContour(self):
+        processed_image = self.img_manager.grayImg().blurImg((20, 20)).cropImg(STD_IMG_SIZE).getImg()
+        ret, binary = cv2.threshold(processed_image, 100, 255, cv2.THRESH_OTSU)
+        inverted_binary = ~ binary
         cv2.waitKey(0) 

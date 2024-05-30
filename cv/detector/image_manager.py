@@ -39,9 +39,11 @@ class ImageManager():
 
     def resizeImg(self, scale):
         self.img =  cv2.resize(self.img, scale)
+        return self
     
     def cropImg(self, dim):
         self.img =  self.img[0:dim[0], 0:dim[1]]
+        return self
 
     def grayImg(self):
         '''
@@ -55,11 +57,13 @@ class ImageManager():
         '''
         try:
             self.img = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
+            return self
         except Exception as e:
             logging.error(e)
     
     def blurImg(self, scale):
-        self.img = cv2.blur(self.img, (6, 6)) 
+        self.img = cv2.blur(self.img, scale) 
+        return self
 
     def resetImg(self):
         self.img = self.og_img

@@ -2,8 +2,7 @@ import cv2
 import numpy as np
 import logging
 from .image_manager import ImageManager
-
-STD_IMG_SIZE = (550, 550)
+from .contants import *
 
 class CircleDetector:
     def __init__(self) -> None:
@@ -19,9 +18,7 @@ class CircleDetector:
         return cv2.bitwise_and(mask1, image)
                   
     def inspectSingleCircle(self):
-        self.img_manager.cropImg(STD_IMG_SIZE)
-        self.img_manager.grayImg()
-        self.img_manager.blurImg((6, 6))
+        self.img_manager.cropImg(STD_IMG_SIZE).grayImg().blurImg((6, 6))
   
         detected_circles = cv2.HoughCircles(self.img_manager.getImg(),  
                         cv2.HOUGH_GRADIENT, 1, 300, 45, param1 = 75, 

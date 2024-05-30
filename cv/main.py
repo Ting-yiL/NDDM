@@ -15,6 +15,6 @@ cd2 = ContourDetector()
 cd2.detectContour(cd1.img)
 
 '''
-cd2 = CircleDetector()
-cd2.img_manager.readImg(r"./resources/images/N45/NG/NG_group1.jpg")
-cd2.inspectSingleCircle()
+cd2 = ContourDetector()
+cd2.img_manager.readImg(r"./resources/images/N45/OK/OK1.jpg")
+cd2.detectContour()
