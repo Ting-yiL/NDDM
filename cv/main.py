@@ -1,16 +1,20 @@
 from detector.circle_detector import CircleDetector
-import cv2
+from detector.contour_detector import ContourDetector
 
 '''
-for i in range(10):
-    cd1 = CircleDetector()
-    cd1.readImg(rf"./resources/images/N45/NG/NG{i}.jpg")
-    cd1.detectCircle()
-'''
-
-
-
 cd2 = CircleDetector()
-# cd2.readImg(r"./resources/images/N45/NG/NG_group1.jpg")
+cd2.readImg(r"./resources/images/N45/NG/NG_group1.jpg")
 cd2.readImg(r"./resources/images/N45/NG/NG1.jpg")
-cd2.inspectSingleCircle(cd2.img)
+cd2.inspectSingleCircle()
+'''
+
+'''
+cd1 = CircleDetector()
+cd1.readImg(r"./resources/images/N45/NG/NG_group1.jpg")
+cd2 = ContourDetector()
+cd2.detectContour(cd1.img)
+
+'''
+cd2 = CircleDetector()
+cd2.img_manager.readImg(r"./resources/images/N45/NG/NG_group1.jpg")
+cd2.inspectSingleCircle()
