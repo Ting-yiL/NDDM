@@ -1,5 +1,6 @@
 import cv2
 import logging
+from .contants import *
 
 class ImageManager():
     def __init__(self) -> None:
@@ -37,8 +38,14 @@ class ImageManager():
         except Exception as e:
             logging.error(e) 
 
-    def resizeImg(self, scale):
+    def resizeImgCustom(self, scale):
         self.img =  cv2.resize(self.img, scale)
+        return self
+    
+    def resizeImgStd(self):
+        ratio = STD_IMG_SIZE[1]/self.img.shape[1]
+        dim = (int(self.img.shape[1]*ratio), int(self.img.shape[0]*ratio))
+        self.img =  cv2.resize(self.img, dim, interpolation = cv2.INTER_AREA)
         return self
     
     def cropImg(self, dim):

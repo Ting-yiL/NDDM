@@ -16,5 +16,5 @@ cd2.detectContour(cd1.img)
 
 '''
 cd2 = ContourDetector()
-cd2.img_manager.readImg(r"./resources/images/N45/OK/OK1.jpg")
+cd2.img_manager.readImg(r"./resources/images/N45/NG/NG_group.jpg")
 cd2.detectContour()
